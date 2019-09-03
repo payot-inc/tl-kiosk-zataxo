@@ -66,7 +66,7 @@ export default {
   name: 'PayTypeSelect',
   props: ['amount'],
   computed: {
-    ...mapState(['options']),
+    ...mapState('kiosk', ['options']),
   },
 };
 </script>

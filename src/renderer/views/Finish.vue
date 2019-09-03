@@ -127,11 +127,9 @@ export default {
         take(1),
       )
       .subscribe(this.logout, console.log);
-
-    console.log(this.data);
   },
   computed: {
-    ...mapState(['company', 'user', 'options']),
+    ...mapState('kiosk', ['company', 'user', 'options']),
 
     phoneNumber() {
       const [, , num3] = this.user.phone;
@@ -140,7 +138,7 @@ export default {
     },
   },
   methods: {
-    ...mapMutations({ setUser: 'SET_USER' }),
+    ...mapMutations('kiosk', { setUser: 'SET_USER' }),
 
     // 사용자 변경내용 최신정보 가져오기
     async userUpdate() {

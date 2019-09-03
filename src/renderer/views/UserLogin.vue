@@ -159,7 +159,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(['company', 'options']),
+    ...mapState('kiosk', ['company', 'options']),
 
     phoneNumber() {
       const { num2, num3 } = this.phone;
@@ -171,7 +171,7 @@ export default {
     },
   },
   methods: {
-    ...mapMutations({ setUser: 'SET_USER' }),
+    ...mapMutations('kiosk', { setUser: 'SET_USER' }),
     // 전화번호 입력 입력
     inputNumber(num) {
       if (this.phone.num2.length < 4) {

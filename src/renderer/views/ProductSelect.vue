@@ -170,7 +170,7 @@ export default {
     await this.getMachineList();
   },
   computed: {
-    ...mapState(['company', 'user']),
+    ...mapState('kiosk', ['company', 'user']),
   },
   methods: {
     async getMachineList() {

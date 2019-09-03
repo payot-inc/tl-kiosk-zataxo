@@ -110,7 +110,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(['user', 'company']),
+    ...mapState('kiosk', ['user', 'company']),
     phoneNumber() {
       const [, , num3] = this.user.phone.split('-');
       return `010-****-${num3}`;

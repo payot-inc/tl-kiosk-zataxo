@@ -18,12 +18,16 @@ function createWindow() {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 563,
-    useContentSize: true,
-    width: 1000,
+    height: 1920,
+    width: 1080,
+    kiosk: true,
+    // alwaysOnTop: true,
   });
 
   mainWindow.loadURL(winURL);
+  mainWindow.webContents.setZoomFactor(1);
+  mainWindow.webContents.setVisualZoomLevelLimits(1, 1);
+  mainWindow.webContents.setLayoutZoomLevelLimits(0, 0);
 
   mainWindow.on('closed', () => {
     mainWindow = null;

@@ -101,7 +101,7 @@
 <script>
 import { mapState } from 'vuex';
 import CashModal from '@/components/CashModal.vue';
-// import CardModal from '@/components/CardModal.vue';
+import CardModal from '@/components/CardModal.vue';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
@@ -110,7 +110,7 @@ export default {
   props: ['amount', 'method'],
   components: {
     CashModal,
-    // CardModal,
+    CardModal,
   },
   data() {
     return {
@@ -124,7 +124,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(['company', 'user', 'options']),
+    ...mapState('kiosk', ['company', 'user', 'options']),
 
     userPhoneNumber() {
       const { phone } = this.user;
