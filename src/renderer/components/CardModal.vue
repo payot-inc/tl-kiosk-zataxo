@@ -1,6 +1,7 @@
 <template></template>
 
 <script>
+/* eslint-disable */
 import { of } from 'rxjs';
 import {} from 'rxjs/operators';
 import { mapState } from 'vuex';

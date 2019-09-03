@@ -54,17 +54,16 @@ export default {
     };
   },
   computed: {
-    ...mapState(['company', 'options']),
+    ...mapState('kiosk', ['company', 'options']),
   },
   methods: {
-    ...mapMutations({ setCompany: 'SET_COMPANY' }),
+    ...mapMutations('kiosk', { setCompany: 'SET_COMPANY' }),
     logout() {
       if (this.clickCounter !== 15) {
         this.clickCounter += 1;
         return;
       }
 
-      console.log(this.company);
       const { email } = this.company;
       this.setCompany({ email });
       this.$router.push({ name: 'login' });

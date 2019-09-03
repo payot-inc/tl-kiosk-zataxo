@@ -2,7 +2,7 @@
   <div id="state_bar">
     <div class="inner">
       <ul class="left">
-        <li>
+        <!-- <li>
           <strong class="active">
             <i class="ui check icon"></i>
           </strong>
@@ -25,7 +25,7 @@
             <i class="ui check icon"></i>
           </strong>
           <span>터치</span>
-        </li>
+        </li> -->
       </ul>
       <ul class="right">
         <li class="login_state">
@@ -58,8 +58,14 @@ export default {
   },
   mounted() {
     const self = this;
-    interval(1000).pipe(map(() => moment()))
-      .subscribe(time => self.time = time, () => {});
+    interval(1000)
+      .pipe(map(() => moment()))
+      .subscribe(
+        (time) => {
+          self.time = time;
+        },
+        () => {},
+      );
   },
 };
 </script>

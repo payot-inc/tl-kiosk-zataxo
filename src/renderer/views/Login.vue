@@ -82,10 +82,10 @@ export default {
     this.config.skip = this.options.skip;
   },
   computed: {
-    ...mapState(['company', 'options']),
+    ...mapState('kiosk', ['company', 'options']),
   },
   methods: {
-    ...mapMutations({ setCompany: 'SET_COMPANY', setOptions: 'SET_OPTIONS' }),
+    ...mapMutations('kiosk', { setCompany: 'SET_COMPANY', setOptions: 'SET_OPTIONS' }),
 
     async login() {
       try {
