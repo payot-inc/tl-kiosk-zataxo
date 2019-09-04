@@ -1,9 +1,33 @@
-<template></template>
+<template>
+  <sui-modal v-model="open" size="basic" :closable="false">
+    <sui-modal-content class="card_modal credit_modal">
+      <div class="title">
+        <h2>카드결제</h2>
+        <div class="counter" id="timer">
+          <!-- <span id="time">60 초</span> -->
+        </div>
+      </div>
+      <div class="info_img" style="background:#fff url('./static/image/card_img.jpg')no-repeat center/100%"></div>
+      <div class="price_info">
+        <dl>
+          <dt>결제예정금액</dt>
+          <dd>
+            <strong class="num">{{ price | priceFormat }}</strong>원
+          </dd>
+        </dl>
+        <p>카드를 카드결제기에 투입해주세요</p>
+      </div>
+      <div class="tip">
+        <span class="time">결제가 완료될때 까지 카드를 빼지 말아 주세요</span>
+      </div>
+    </sui-modal-content>
+  </sui-modal>
+</template>
 
 <script>
 /* eslint-disable */
 import { of } from 'rxjs';
-import {} from 'rxjs/operators';
+import { delay } from 'rxjs/operators';
 import { mapState } from 'vuex';
 import edge from 'electron-edge-js';
 import _ from 'lodash';
@@ -60,6 +84,7 @@ export default {
   data() {
     return {
       open: false,
+      price: 0,
     };
   },
   computed: {
@@ -68,10 +93,11 @@ export default {
   methods: {
     async show(amount) {
       try {
+        this.price = amount;
+        this.open = true;
         await of(null)
           .pipe(delay(500))
           .toPromise();
-        this.open = true;
 
         const { name } = this.company;
         const result = await payment(name, amount);
