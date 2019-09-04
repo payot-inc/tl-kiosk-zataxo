@@ -64,7 +64,7 @@
 
       <CashModal ref="cash_modal" @submit="pointAppend($event)" />
 
-      <!-- <CardModal ref="card_modal" @submit="pointAppend(amount)" @error="cardError($event)" /> -->
+      <CardModal ref="card_modal" @submit="pointAppend(amount)" @error="cardError($event)" />
 
       <sui-modal v-model="progress.open" size="basic" :closable="false">
         <sui-modal-content class="ui modal order_ing basic">
@@ -101,7 +101,7 @@
 <script>
 import { mapState } from 'vuex';
 import CashModal from '@/components/CashModal.vue';
-// import CardModal from '@/components/CardModal.vue';
+import CardModal from '@/components/CardModal.vue';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
@@ -110,7 +110,7 @@ export default {
   props: ['amount', 'method'],
   components: {
     CashModal,
-    // CardModal,
+    CardModal,
   },
   data() {
     return {

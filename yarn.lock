@@ -3394,13 +3394,13 @@ electron-download@^3.0.1:
     semver "^5.3.0"
     sumchecker "^1.2.0"
 
-electron-edge-js@^12.0.1:
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/electron-edge-js/-/electron-edge-js-12.0.1.tgz#d2aaceed0088553e5ec15230f87c673835d77c9f"
-  integrity sha512-DRjjmCZixAnZEueVqc91y9oWXdsIFbMBi4pBlQYhINqcpcfniPx/Vvp2oohBCCWp98+1uMw/zArkacrbS4VPPA==
+electron-edge-js@^10.11.1:
+  version "10.11.1"
+  resolved "https://registry.yarnpkg.com/electron-edge-js/-/electron-edge-js-10.11.1.tgz#daf065580cc43b83de8405da27d19c66a169b27a"
+  integrity sha512-DJ5S3W9CMu02kp4aDfQbBvsrFWlC94YgCVrSOZVsm7NGT2+yvXhQcuUIK/D9gpzDlXuNl1cBbL6f6208isv3Wg==
   dependencies:
     edge-cs "1.2.1"
-    nan "^2.14.0"
+    nan "^2.10.0"
 
 electron-is-accelerator@^0.1.0:
   version "0.1.2"
@@ -6290,7 +6290,7 @@ mute-stream@0.0.7:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
   integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
 
-nan@^2.12.1, nan@^2.13.2, nan@^2.14.0:
+nan@^2.10.0, nan@^2.12.1, nan@^2.13.2:
   version "2.14.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.0.tgz#7818f722027b2459a86f0295d434d1fc2336c52c"
   integrity sha512-INOFj37C7k3AfaNTtX8RhsTw7qRy7eLET14cROi9+5HAVbbHuIWUHEauBv5qT4Av2tWasiTY1Jw6puUNqRJXQg==
