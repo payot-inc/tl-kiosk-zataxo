@@ -38,13 +38,13 @@
               <span class="num">{{ p | priceFormat}}</span> 원
             </div>
             <div class="card_point point" v-if="options.isCard">
-              <span class="name">카드결제시({{ options.card / 100 | numeral('0%') }})</span>
+              <span class="name">카드결제시({{ options.card / 100 | persentFormat }})</span>
               <span class="num point1">{{ p | priceFormat }}P</span>
               <span class="add">+</span>
               <span class="num point2">{{ (options.card / 100) * p | numeral(0,0) }}P</span>
             </div>
             <div class="coin_point point">
-              <span class="name">현금결제시({{ options.cash / 100 | numeral('0%') }})</span>
+              <span class="name">현금결제시({{ options.cash / 100 | persentFormat }})</span>
               <span class="num point1">{{ p | priceFormat }}P</span>
               <span class="add">+</span>
               <span class="num point2">{{ (options.cash) / 100 * p | priceFormat }}P</span>
@@ -56,12 +56,14 @@
         <div class="bottom_btns">
           <div class="btns">
             <div class="in">
-              <a href="#" class="back" @click="$router.push({ name: 'info', params: { type: 'pay' } })">
+              <a
+                href="#"
+                class="back"
+                @click="$router.push({ name: 'info', params: { type: 'pay' } })"
+              >
                 <i class="ui angle left icon"></i>
               </a>
-              <a href="#" class="next" @click="wrap">
-                {{ options.isCard ? '결제수단 선택하기' : '결제하기' }}
-              </a>
+              <a href="#" class="next" @click="wrap">{{ options.isCard ? '결제수단 선택하기' : '결제하기' }}</a>
             </div>
           </div>
         </div>
@@ -95,13 +97,14 @@
 
 <script>
 import { mapState } from 'vuex';
+import numeral from 'numeral';
 
 export default {
   name: 'AmountSelect',
   computed: {
     ...mapState('kiosk', ['user', 'options']),
     phoneNumber() {
-      const [,, num3] = this.user.phone.split('-');
+      const [, , num3] = this.user.phone.split('-');
 
       return `010-****-${num3}`;
     },
@@ -121,6 +124,11 @@ export default {
       } else {
         this.$router.push({ name: 'payDetail', params: { amount, method: 'cash' } });
       }
+    },
+  },
+  filters: {
+    persentFormat(value) {
+      return numeral(value).format('0%');
     },
   },
 };

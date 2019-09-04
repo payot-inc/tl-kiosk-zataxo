@@ -30,7 +30,7 @@
                 </label>
                 <div class="text">
                   <strong>회원가입 후 충전하기</strong>
-                  <span>부연설명이 필요합니다 부연설명이 필요합니다 부연설명이 필요</span>
+                  <span>핸드폰번호를 통하여 회원가입 및 포인트 적립이 이루어집니다</span>
                 </div>
                 <div class="arrow">
                   <span>
@@ -45,7 +45,7 @@
                 </label>
                 <div class="text">
                   <strong>세탁기 사용방법</strong>
-                  <span>부연설명이 필요합니다 부연설명이 필요합니다 부연설명이 필요</span>
+                  <span>핸드폰번호에 적립 된 포인트를 이용하여 결제를 할 수 있습니다</span>
                 </div>
                 <div class="arrow">
                   <span>
@@ -60,7 +60,7 @@
                 </label>
                 <div class="text">
                   <strong>건조기 사용방법</strong>
-                  <span>부연설명이 필요합니다 부연설명이 필요합니다 부연설명이 필요</span>
+                  <span>핸드폰번호에 적립된 포인트를 이용하여 결제를 할 수 있습니다</span>
                 </div>
                 <div class="arrow">
                   <span>

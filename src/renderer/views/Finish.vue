@@ -132,7 +132,7 @@ export default {
     ...mapState('kiosk', ['company', 'user', 'options']),
 
     phoneNumber() {
-      const [, , num3] = this.user.phone;
+      const [, , num3] = this.user.phone.split('-');
 
       return `010-****-${num3}`;
     },

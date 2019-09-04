@@ -35,18 +35,18 @@ export default {
     return {
       items: {
         kiosk: {
-          title: '회원가입 및 포인트 충전하기',
-          message: '가입된 휴대 번호로 결제 정보 알림 및 포인트 적립이 됩니다',
+          title: '회원가입 후 포인트 충전하기',
+          message: '핸드폰 번호를 통하여 회원가입 및 포인트 적립이 이루어집니다',
           img: this.imagePath('guide_01.png'),
         },
         wash: {
-          title: '',
-          message: '',
+          title: '세탁기 사용방법',
+          message: '핸드폰 번호에 적립된 포인트를 이용하여 결제를 할 수 있습니다',
           img: this.imagePath('guide_02.png'),
         },
         dry: {
-          title: '',
-          message: '',
+          title: '건조기 사용방법',
+          message: '핸드폰번호에 적립 된 포인트를 이용하여 결제를 할 수 있습니다',
           img: this.imagePath('guide_03.png'),
         },
       },
