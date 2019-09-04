@@ -29,7 +29,7 @@ function createWindow() {
   mainWindow.webContents.setVisualZoomLevelLimits(1, 1);
   mainWindow.webContents.setLayoutZoomLevelLimits(0, 0);
 
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {
     mainWindow = null;

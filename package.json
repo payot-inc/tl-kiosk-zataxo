@@ -55,7 +55,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "cron": "^1.7.1",
-    "electron-edge-js": "^12.0.1",
+    "electron-edge-js": "10.11.1",
     "electron-shutdown-command": "^0.0.8",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
