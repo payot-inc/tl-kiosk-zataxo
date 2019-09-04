@@ -6,6 +6,7 @@ import axios from 'axios';
 // import VueNumeral from 'vue-numeral-filter';
 import VueSemantic from 'semantic-ui-vue';
 import VueMoment from 'vue-moment';
+import numeral from 'numeral';
 import { debounceTime, take, filter } from 'rxjs/operators';
 import { CronJob } from 'cron';
 import { networkStatusChange } from '@/module/network-state';
@@ -25,6 +26,7 @@ Vue.prototype.$http = axios.create({
 
 Vue.use(VueMoment);
 Vue.use(VueSemantic);
+Vue.filter('priceFormat', value => numeral(value).format('0,0'));
 
 // const disconnectTimer = 1000 * 60 * 10;
 const disconnectTimer = 1000 * 10;

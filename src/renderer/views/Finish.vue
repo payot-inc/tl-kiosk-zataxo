@@ -33,16 +33,16 @@
           <div class="in">
             <dl>
               <dt>내 포인트</dt>
-              <dd>{{ user.point | numeral('0,0') }} 포인트</dd>
+              <dd>{{ user.point | priceFormat }} 포인트</dd>
             </dl>
             <dl>
               <dt>결제금액</dt>
-              <dd>{{ data.product.price | numeral('0,0') }}원</dd>
+              <dd>{{ data.product.price | priceFormat }}원</dd>
             </dl>
 
             <dl class="last-point">
               <dt>남은 포인트</dt>
-              <dd>{{ data.response.point | numeral('0,0') }} 포인트</dd>
+              <dd>{{ data.response.point | priceFormat }} 포인트</dd>
             </dl>
           </div>
         </div>
@@ -57,19 +57,19 @@
           <div class="in">
             <dl>
               <dt>내 포인트</dt>
-              <dd>{{ user.point | numeral('0,0') }} 포인트</dd>
+              <dd>{{ user.point | priceFormat }} 포인트</dd>
             </dl>
             <dl>
               <dt>결제금액</dt>
-              <dd>{{ data.price | numeral('0,0') }}원</dd>
+              <dd>{{ data.price | priceFormat }}원</dd>
             </dl>
             <dl>
               <dt>추가 포인트</dt>
-              <dd>{{ Number(data.havePoint) - Number(user.point) - data.price | numeral('0,0') }} 포인트</dd>
+              <dd>{{ Number(data.havePoint) - Number(user.point) - data.price | priceFormat }} 포인트</dd>
             </dl>
             <dl class="last-point">
               <dt>남은 포인트</dt>
-              <dd>{{ data.havePoint | numeral('0,0') }} 포인트</dd>
+              <dd>{{ data.havePoint | priceFormat }} 포인트</dd>
             </dl>
           </div>
         </div>

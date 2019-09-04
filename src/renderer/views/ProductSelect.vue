@@ -18,7 +18,7 @@
         <div class="my_point">
           <span>나의 포인트</span>
           <strong>
-            <b>{{ user.point | numeral('0,0') }}</b> 포인트
+            <b>{{ user.point | priceFormat }}</b> 포인트
             <router-link :to="{ name: 'amountSelect' }">충전하기</router-link>
           </strong>
         </div>
@@ -64,9 +64,9 @@
                 <div class="product_info">
                   <strong>{{ p.name }}</strong>
                   <div>
-                    <span class="time">{{ p.runTimeSec / 60 | numeral('0,0') }}분</span>
+                    <span class="time">{{ p.runTimeSec / 60 | priceFormat }}분</span>
                     <span class="price">
-                      <b>{{ p.price | numeral('0,0') }}</b>원
+                      <b>{{ p.price | priceFormat }}</b>원
                     </span>
                   </div>
                 </div>
@@ -93,7 +93,7 @@
             <dl>
               <dt>결제예정금액</dt>
               <dd v-show="selectProduct.id">
-                <b>{{ selectProduct.price | numeral('0,0') }}</b>원
+                <b>{{ selectProduct.price | priceFormat }}</b>원
               </dd>
               <dd v-show="!selectProduct.id">
                 <p>상품을 선택해 주세요</p>

@@ -27,23 +27,23 @@
               <ul>
                 <li class="pri2">
                   <strong>나의포인트</strong>
-                  <span class="num">{{ user.point | numeral('0,0') }} 포인트</span>
+                  <span class="num">{{ user.point | priceFormat }} 포인트</span>
                 </li>
                 <li class="pri">
                   <strong>결제예정금액</strong>
-                  <span class="num">{{ amount | numeral('0,0') }} 원</span>
+                  <span class="num">{{ amount | priceFormat }} 원</span>
                 </li>
                 <li class="pri2">
                   <strong>총 지급 포인트</strong>
                   <span
                     class="num"
-                  >{{ (1 + (options[method] / 100)) * amount | numeral('0,0') }} 포인트</span>
+                  >{{ (1 + (options[method] / 100)) * amount | priceFormat }} 포인트</span>
                 </li>
                 <li class="pt">
                   <strong>결제 후 포인트</strong>
                   <span
                     class="num"
-                  >{{ Number(user.point) + ((1 + (options[method] / 100)) * amount) | numeral('0,0') }} 포인트</span>
+                  >{{ Number(user.point) + ((1 + (options[method] / 100)) * amount) | priceFormat }} 포인트</span>
                 </li>
               </ul>
             </dd>
@@ -64,7 +64,7 @@
 
       <CashModal ref="cash_modal" @submit="pointAppend($event)" />
 
-      <CardModal ref="card_modal" @submit="pointAppend(amount)" @error="cardError($event)" />
+      <!-- <CardModal ref="card_modal" @submit="pointAppend(amount)" @error="cardError($event)" /> -->
 
       <sui-modal v-model="progress.open" size="basic" :closable="false">
         <sui-modal-content class="ui modal order_ing basic">
@@ -101,7 +101,7 @@
 <script>
 import { mapState } from 'vuex';
 import CashModal from '@/components/CashModal.vue';
-import CardModal from '@/components/CardModal.vue';
+// import CardModal from '@/components/CardModal.vue';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
@@ -110,7 +110,7 @@ export default {
   props: ['amount', 'method'],
   components: {
     CashModal,
-    CardModal,
+    // CardModal,
   },
   data() {
     return {

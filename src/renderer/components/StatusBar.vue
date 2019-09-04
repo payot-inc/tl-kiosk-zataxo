@@ -54,7 +54,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(['company']),
+    ...mapState('kiosk', ['company']),
   },
   mounted() {
     const self = this;

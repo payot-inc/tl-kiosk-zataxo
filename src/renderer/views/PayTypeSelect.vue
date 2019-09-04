@@ -23,7 +23,7 @@
             @click="$router.push({ name: 'payDetail', params: { amount, method: 'cash' } })"
             href="#"
             class="coin"
-            style="background:#fff url('image/coin.png')no-repeat top;"
+            style="background:#fff url('./static/image/coin.png')no-repeat top;"
           >
             <div class="cont">
               <strong>현금으로 충전</strong>
@@ -34,7 +34,7 @@
             @click="$router.push({ name: 'payDetail', params: { amount, method: 'card' } })"
             href="#"
             class="card"
-            style="background:#fff url('./image/card.png')no-repeat top;"
+            style="background:#fff url('./static/image/card.png')no-repeat top;"
           >
             <div class="cont">
               <strong>신용카드로 충전</strong>

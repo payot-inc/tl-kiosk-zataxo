@@ -22,7 +22,7 @@
           </div>
           <div class="my_point">
             <span>보유 포인트</span>
-            <strong>{{ user.point | numeral('0,0') }} P</strong>
+            <strong>{{ user.point | priceFormat }} P</strong>
           </div>
         </div>
 
@@ -35,19 +35,19 @@
             @click="selected = p"
           >
             <div class="price">
-              <span class="num">{{ p | numeral('0,0')}}</span> 원
+              <span class="num">{{ p | priceFormat}}</span> 원
             </div>
             <div class="card_point point" v-if="options.isCard">
               <span class="name">카드결제시({{ options.card / 100 | numeral('0%') }})</span>
-              <span class="num point1">{{ p | numeral('0,0') }}P</span>
+              <span class="num point1">{{ p | priceFormat }}P</span>
               <span class="add">+</span>
               <span class="num point2">{{ (options.card / 100) * p | numeral(0,0) }}P</span>
             </div>
             <div class="coin_point point">
               <span class="name">현금결제시({{ options.cash / 100 | numeral('0%') }})</span>
-              <span class="num point1">{{ p | numeral('0,0') }}P</span>
+              <span class="num point1">{{ p | priceFormat }}P</span>
               <span class="add">+</span>
-              <span class="num point2">{{ (options.cash) / 100 * p | numeral('0,0') }}P</span>
+              <span class="num point2">{{ (options.cash) / 100 * p | priceFormat }}P</span>
             </div>
             <strong>충전</strong>
           </a>
@@ -73,7 +73,7 @@
           <strong>
             선택하신 금액은
             <br />
-            {{ selected | numeral('0,0') }}원입니다
+            {{ selected | priceFormat }}원입니다
             <b>충전하시겠습니까?</b>
           </strong>
         </div>
@@ -99,7 +99,7 @@ import { mapState } from 'vuex';
 export default {
   name: 'AmountSelect',
   computed: {
-    ...mapState(['user', 'options']),
+    ...mapState('kiosk', ['user', 'options']),
     phoneNumber() {
       const [,, num3] = this.user.phone.split('-');
 

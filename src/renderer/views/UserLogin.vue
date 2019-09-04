@@ -269,6 +269,7 @@ export default {
         const { data } = await this.$http.post('/user', params);
 
         this.setUser(data);
+
         if (!isEmpty(this.reset.digest) && this.reset.digest === password && !this.reset.status) {
           this.$refs.password_modal.show('reset');
           this.reset.status = true;

@@ -14,13 +14,13 @@
         <dl>
           <dt>결제예정금액</dt>
           <dd>
-            <strong class="num">{{ targetAmount | numeral('0,0')}}</strong>원
+            <strong class="num">{{ targetAmount | priceFormat}}</strong>원
           </dd>
         </dl>
         <dl>
           <dt>투입된 금액</dt>
           <dd>
-            <strong class="num">{{ amount | numeral('0,0') }}</strong>원
+            <strong class="num">{{ amount | priceFormat }}</strong>원
           </dd>
         </dl>
         <p>현금결제기에 현금을 투입해주세요</p>

@@ -35,7 +35,7 @@
                 </li>
                 <li>
                   <strong>동작시간</strong>
-                  <span>{{ product.runTimeSec / 60 | numeral('0,0') }}분</span>
+                  <span>{{ product.runTimeSec / 60 | priceFormat }}분</span>
                 </li>
               </ul>
             </dd>
@@ -47,17 +47,17 @@
               <ul>
                 <li class="pt">
                   <strong>나의포인트</strong>
-                  <span class="num">{{ user.point | numeral('0,0') }} 포인트</span>
+                  <span class="num">{{ user.point | priceFormat }} 포인트</span>
                 </li>
                 <li class="pri">
                   <strong>결제예정금액</strong>
-                  <span class="num">{{ product.price | numeral('0,0') }} 원</span>
+                  <span class="num">{{ product.price | priceFormat }} 원</span>
                 </li>
                 <li class="pri2">
                   <strong>결제 후 잔액</strong>
                   <span
                     class="num"
-                  >{{ Number(user.point) - Number(product.price) | numeral('0,0') }} 포인트</span>
+                  >{{ Number(user.point) - Number(product.price) | priceFormat }} 포인트</span>
                 </li>
               </ul>
             </dd>
