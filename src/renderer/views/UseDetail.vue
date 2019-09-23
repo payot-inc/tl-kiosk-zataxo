@@ -67,7 +67,7 @@
         <div class="bottom_btns">
           <div class="btns">
             <div class="in">
-              <a href="#" @click="$router.go(-1)" class="back">
+              <a href="#" @click="$router.push({ name: 'products' })" class="back">
                 <i class="ui angle left icon"></i>
               </a>
               <a href="#" @click="runDevice" class="next">다음</a>

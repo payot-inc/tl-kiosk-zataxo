@@ -88,7 +88,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(['company']),
+    ...mapState('kiosk', ['company']),
   },
   methods: {
     async show(amount) {
@@ -102,7 +102,7 @@ export default {
         const { name } = this.company;
         const result = await payment(name, amount);
 
-        this.$emit('sumit', result);
+        this.$emit('submit', result);
       } catch (error) {
         this.$emit('error', error.message);
       } finally {

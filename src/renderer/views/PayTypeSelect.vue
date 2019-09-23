@@ -27,7 +27,7 @@
           >
             <div class="cont">
               <strong>현금으로 충전</strong>
-              <span v-show="options.cash !== 0">적립률 ({{ options.cash / 100 | numeral('0%') }})</span>
+              <span v-show="options.cash !== 0">적립률 ({{ options.cash / 100 | persentFormat }})</span>
             </div>
           </a>
           <a
@@ -38,7 +38,7 @@
           >
             <div class="cont">
               <strong>신용카드로 충전</strong>
-              <span v-show="options.card !== 0">적립률 ({{ options.card / 100 | numeral('0%') }})</span>
+              <span v-show="options.card !== 0">적립률 ({{ options.card / 100 | persentFormat }})</span>
             </div>
           </a>
         </div>
@@ -61,12 +61,18 @@
 
 <script>
 import { mapState } from 'vuex';
+import numeral from 'numeral';
 
 export default {
   name: 'PayTypeSelect',
   props: ['amount'],
   computed: {
     ...mapState('kiosk', ['options']),
+  },
+  filters: {
+    persentFormat(value) {
+      return numeral(value).format('0%');
+    },
   },
 };
 </script>

@@ -40,7 +40,7 @@ export default new Router({
       path: '/',
       name: 'main',
       component: Splash,
-      beforeEnter: companyLoginValide,
+      beforeRouerEnter: companyLoginValide,
     },
     {
       path: '/login',

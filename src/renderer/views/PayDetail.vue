@@ -104,6 +104,7 @@ import CashModal from '@/components/CashModal.vue';
 import CardModal from '@/components/CardModal.vue';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { isEmpty } from 'lodash';
 
 export default {
   name: 'PayDetail',
@@ -159,11 +160,19 @@ export default {
           .toPromise();
 
         const { company, user, options } = this;
+
+        // 회원가입이 되어있지 않다면
+        if (!isEmpty(user.password)) {
+          const { phone, password } = user;
+
+          await this.$http.post('/user', { companyId: company.id, phone, password });
+        }
+
         const params = {
           companyId: company.id,
           phone: user.phone,
           method: this.method,
-          price: Number(amount),
+          price: this.method === 'cash' ? Number(amount) : Number(this.amount),
           rate: this.method === 'cash' ? options.cash / 100 : options.card / 100,
         };
 

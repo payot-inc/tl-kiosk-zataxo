@@ -149,6 +149,7 @@ export default {
         open: false,
       },
       reset: {
+        isSignUser: false,
         open: false,
         digest: '',
         status: false,
@@ -169,6 +170,9 @@ export default {
     docs() {
       return Docs;
     },
+  },
+  mounted() {
+    this.setUser({});
   },
   methods: {
     ...mapMutations('kiosk', { setUser: 'SET_USER' }),
@@ -209,9 +213,11 @@ export default {
         if (isSignUser) {
           // 기존 회원인 경우
           this.$refs.password_modal.show('password');
+          this.reset.isSignUser = true;
         } else {
           // 새로운 회원인 경우
           this.$refs.password_modal.show('reset');
+          this.reset.isSignUser = false;
         }
       } catch (error) {
         switch (error.message) {
@@ -252,7 +258,7 @@ export default {
         const { phoneNumber: phone } = this;
         const { id: companyId } = this.company;
 
-        if (this.reset.status) {
+        if (this.reset.status && this.reset.isSignUser) {
           const url = '/user/password';
           const params = {
             phone: this.phoneNumber,
@@ -260,8 +266,15 @@ export default {
             oldPassword: this.reset.digest,
             newPassword: password,
           };
-
           await this.$http.put(url, params);
+        } else if (!this.reset.status && !this.reset.isSignUser) {
+          this.setUser({
+            phone: this.phoneNumber,
+            password,
+            point: 0,
+          });
+          this.wrap();
+          return;
         }
 
         const params = { phone, companyId, password };
@@ -276,14 +289,18 @@ export default {
           return;
         }
 
-        if (this.options.skip) {
-          const routeName = this.type === 'pay' ? 'amountSelect' : 'products';
-          this.$router.push({ name: routeName });
-        } else {
-          this.$router.push({ name: 'info', params: { type: this.type } });
-        }
+        this.wrap();
       } catch (error) {
         this.error.open = true;
+      }
+    },
+
+    wrap() {
+      if (this.options.skip) {
+        const routeName = this.type === 'pay' ? 'amountSelect' : 'products';
+        this.$router.push({ name: routeName });
+      } else {
+        this.$router.push({ name: 'info', params: { type: this.type } });
       }
     },
   },

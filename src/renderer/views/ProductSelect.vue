@@ -180,6 +180,7 @@ export default {
 
         const { data } = await this.$http.get(url);
         this.selectMachine = data[0];
+        this.selectProduct = this.selectMachine.services[0];
         this.machineList = data;
       } catch (error) {
         console.log(error);

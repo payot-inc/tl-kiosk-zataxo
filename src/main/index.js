@@ -29,6 +29,8 @@ function createWindow() {
   mainWindow.webContents.setVisualZoomLevelLimits(1, 1);
   mainWindow.webContents.setLayoutZoomLevelLimits(0, 0);
 
+  mainWindow.webContents.session.clearCache(() => console.log('캐시 삭제'));
+  mainWindow.webContents.session.clearStorageData(() => console.log('스토리지 삭제'));
   // mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {

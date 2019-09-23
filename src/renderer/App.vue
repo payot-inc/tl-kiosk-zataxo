@@ -48,11 +48,11 @@ export default {
       }
     });
   },
-  // onIdle() {
-  //   const routeName = this.$router.name;
-  //   if (!['login', 'main'].includes(routeName)) {
-  //     this.$router.push({ name: 'main' });
-  //   }
-  // },
+  onIdle() {
+    const routeName = this.$router.name;
+    if (!['login', 'main', 'payDetail'].includes(routeName)) {
+      this.$router.push({ name: 'main' });
+    }
+  },
 };
 </script>
