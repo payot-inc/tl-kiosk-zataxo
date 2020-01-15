@@ -1,8 +1,8 @@
 {
   "name": "kiosk",
-  "version": "3.0.0",
+  "version": "3.0.3",
   "author": "",
-  "description": "An electron-vue project",
+  "description": "자탁소 키오스크",
   "license": null,
   "main": "./dist/electron/main.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "postinstall": "npm run lint:fix"
   },
   "build": {
-    "productName": "키오스크",
+    "productName": "자탁소",
     "appId": "com.payot.thelaundry",
     "directories": {
       "output": "build"

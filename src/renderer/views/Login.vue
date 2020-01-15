@@ -51,7 +51,7 @@
         </div>
       </div>
       <div class="logo">
-        <img src="@/assets/image/the_logo_w.png" />
+        <img src="@/assets/image/the_logo.png" />
       </div>
     </div>
   </div>

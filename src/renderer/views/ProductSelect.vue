@@ -169,6 +169,11 @@ export default {
   async mounted() {
     await this.getMachineList();
   },
+  watch: {
+    selectMachine(newValue) {
+      this.selectProduct = newValue.services[0];
+    },
+  },
   computed: {
     ...mapState('kiosk', ['company', 'user']),
   },

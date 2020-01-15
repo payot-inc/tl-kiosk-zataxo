@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     imagePath(path) {
-      return `http://admin.payot-coin.com/kiosk/${path}`;
+      return `http://admin.payot-coin.com/kiosk/zatacso/${path}`;
     },
 
     wrap() {

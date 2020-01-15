@@ -19,7 +19,7 @@
         <router-link :to="{ name: 'menu' }" class="ui button">시작하기</router-link>
       </div>
       <div class="logo" @click="logout">
-        <img src="@/assets/image/the_logo_w.png" />
+        <img src="@/assets/image/the_logo.png" style="opacity: 0;" />
       </div>
 
       <div class="wave-box">
@@ -44,11 +44,7 @@ export default {
   data() {
     return {
       images: [
-        'http://admin.payot-coin.com/kiosk/sb01.png',
-        'http://admin.payot-coin.com/kiosk/sb02.png',
-        'http://admin.payot-coin.com/kiosk/sb03.png',
-        'http://admin.payot-coin.com/kiosk/sb04.png',
-        'http://admin.payot-coin.com/kiosk/sb05.png',
+        'http://admin.payot-coin.com/kiosk/zatacso/sb01.png',
       ],
       clickCounter: 0,
     };

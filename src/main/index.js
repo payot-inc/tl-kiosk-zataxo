@@ -1,30 +1,36 @@
-import { app, BrowserWindow } from 'electron' // eslint-disable-line
+/* eslint-disable */
+import { app, BrowserWindow } from 'electron'; // eslint-disable-line
 
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
  */
 if (process.env.NODE_ENV !== 'development') {
-  global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\') // eslint-disable-line
+  global.__static = require('path')
+    .join(__dirname, '/static')
+    .replace(/\\/g, '\\\\'); // eslint-disable-line
 }
 
 let mainWindow;
-const winURL = process.env.NODE_ENV === 'development'
-  ? 'http://localhost:9080'
-  : `file://${__dirname}/index.html`;
+const winURL =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:9080'
+    : `file://${__dirname}/index.html`;
 
 function createWindow() {
   /**
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 1920,
-    width: 1080,
+    fullscreen: true,
+    // height: 1920,
+    // width: 1080,
     kiosk: true,
-    // alwaysOnTop: true,
+    alwaysOnTop: true,
   });
 
   mainWindow.loadURL(winURL);
+  mainWindow.setMenu(null);
   mainWindow.webContents.setZoomFactor(1);
   mainWindow.webContents.setVisualZoomLevelLimits(1, 1);
   mainWindow.webContents.setLayoutZoomLevelLimits(0, 0);
@@ -36,6 +42,18 @@ function createWindow() {
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
+}
+
+var shouldQuit = app.makeSingleInstance(function(commandLine, workingDirectory) {
+  // Someone tried to run a second instance, we should focus our window.
+  if (mainWindow) {
+    if (mainWindow.isMinimized()) mainWindow.restore();
+    mainWindow.focus();
+  }
+});
+
+if (shouldQuit) {
+  app.quit();
 }
 
 app.on('ready', createWindow);

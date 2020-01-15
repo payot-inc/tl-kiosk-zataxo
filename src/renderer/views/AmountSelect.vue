@@ -34,22 +34,25 @@
             :class="{ on: selected === p }"
             @click="selected = p"
           >
-            <div class="price">
-              <span class="num">{{ p | priceFormat}}</span> 원
+            <div>
+              <div class="price">
+                <strong class="title">충전</strong>
+                <strong><span class="num">{{ p | priceFormat}}</span> 원</strong>
+              </div>
+              <div class="card_point point" v-if="options.isCard">
+                <span class="name">카드 추가금액({{ options.card / 100 | persentFormat }})</span>
+                <!-- <span class="num point1">{{ p | priceFormat }}P</span> -->
+                <!-- <span class="add">+</span> -->
+                <span class="num point2">{{ (options.card / 100) * p | priceFormat }}P</span>
+              </div>
+              <div class="coin_point point">
+                <span class="name">현금 추가금액({{ options.cash / 100 | persentFormat }})</span>
+                <!-- <span class="num point1">{{ p | priceFormat }}P</span> -->
+                <!-- <span class="add">+</span> -->
+                <span class="num point2">{{ (options.cash) / 100 * p | priceFormat }}P</span>
+              </div>
+              
             </div>
-            <div class="card_point point" v-if="options.isCard">
-              <span class="name">카드결제시({{ options.card / 100 | persentFormat }})</span>
-              <span class="num point1">{{ p | priceFormat }}P</span>
-              <span class="add">+</span>
-              <span class="num point2">{{ (options.card / 100) * p | numeral(0,0) }}P</span>
-            </div>
-            <div class="coin_point point">
-              <span class="name">현금결제시({{ options.cash / 100 | persentFormat }})</span>
-              <span class="num point1">{{ p | priceFormat }}P</span>
-              <span class="add">+</span>
-              <span class="num point2">{{ (options.cash) / 100 * p | priceFormat }}P</span>
-            </div>
-            <strong>충전</strong>
           </a>
         </div>
 
