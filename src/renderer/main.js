@@ -32,7 +32,7 @@ Vue.use(VueIdle, {
   eventEmitter: new Vue(),
   idleTime: 1000 * 60 * 2,
 });
-Vue.filter('priceFormat', value => numeral(value).format('0,0'));
+Vue.filter('priceFormat', value => numeral(value.toFixed(0)).format('0,0'));
 
 const disconnectTimer = 1000 * 60 * 15;
 // 키오스크 구동 이후 네트워크 연결상태 변경시
