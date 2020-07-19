@@ -58,7 +58,7 @@
     "electron-edge-js": "10.11.1",
     "electron-shutdown-command": "^0.0.8",
     "idle-vue": "^2.0.5",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "moment": "^2.24.0",
     "numeral": "^2.0.6",
     "rxjs": "^6.5.2",
