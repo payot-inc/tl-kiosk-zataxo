@@ -53,7 +53,7 @@
     }
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "cron": "^1.7.1",
     "electron-edge-js": "10.11.1",
     "electron-shutdown-command": "^0.0.8",
